@@ -31,7 +31,19 @@ const DraftJsText = (props: DraftJsTextPropsType): any => {
     });
 
     const customStyle = props.customStyles ? props.customStyles[props.type] : undefined;
-    const textAlignStyle = { textAlign: props.data["text-align"] };
+
+    const textStyleMapping = {
+      "start": "left", 
+      "end": "right",
+      "left": "left",
+      "right": "right",
+      "center": "center",
+      "justify": "justify",
+      "justify-all": "justify",
+      "match-parent": "auto"
+    }
+
+    const textAlignStyle = { textAlign: textStyleMapping[props.data["text-align"]] };
 
     return (
       <Text
